@@ -22,7 +22,7 @@ function entrar(email)
     var pass = document.getElementById('inputPassword').value
     if (user && pass)
     {
-        if(user==='Ceibal'&&pass==='2021')
+        if(user==='Ceibal'&&pass==='2020')
         {
             window.location="index.html";
         }
