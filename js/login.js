@@ -1,12 +1,35 @@
 function showLogin(){
-    window.location="login.html";
+    console.log('step0')
+    /*
+    login = SI:     => Se muestra login.html
+    login = NO:     => No s hace nada
+    login = null    => Se muestra login.html y se crea login = NO
+    */ 
+    var login = localStorage.getItem('login');
+
+    if (login){
+        if(login === 'SI'){
+            window.location="login.html";
+            localStorage.setItem('login','NO');
+        }
+    }
+    else{
+        window.location="login.html";
+        localStorage.setItem('login','NO');
+    }
 }
 
 function entrar(){
     window.location="index.html";
 }
 
-console.log('step1')
+function cerrar_sesion(){
+    localStorage.setItem('login','SI');
+    showLogin()
+}
+
+// Muestro el loggin si no se ha mostrado antes
+showLogin()
 
 
 
@@ -15,11 +38,10 @@ console.log('step1')
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData("https://raw.githubusercontent.com/ycabrera90/Obligatorio_JAP-api/master/package.json").then(function(resultObj){
-        if (resultObj.status === "ok"){
-            console.log(resultObj.data);
-        }
-        console.log('entramos en getJSONData')
-    })
+    
+    //localStorage.setItem("email", 'esto es un prueba1');
+    console.log(localStorage.getItem("email1"));
+    
+   
 
 });
