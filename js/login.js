@@ -15,7 +15,7 @@ console.log('step1')
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData("json/login.json").then(function(resultObj){
+    getJSONData("https://raw.githubusercontent.com/ycabrera90/Obligatorio_JAP-api/master/package.json").then(function(resultObj){
         if (resultObj.status === "ok"){
             console.log(resultObj.data);
         }
