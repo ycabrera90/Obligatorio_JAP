@@ -1,26 +1,41 @@
-function showLogin(){
-    console.log('step0')
+function showLogin()
+{
     /*
     login = SI:     => Se muestra login.html
     login = NO:     => No s hace nada
-    login = null    => Se muestra login.html y se crea login = NO
+    login = null    => Se muestra login.html
     */ 
     var login = localStorage.getItem('login');
 
-    if (login){
+    if (login)
+    {
         if(login === 'SI'){
             window.location="login.html";
-            localStorage.setItem('login','NO');
         }
-    }
-    else{
-        window.location="login.html";
-        localStorage.setItem('login','NO');
     }
 }
 
-function entrar(){
-    window.location="index.html";
+function entrar(email)
+{
+    localStorage.setItem('login','NO');
+    var user = document.getElementById('inputEmail').value;
+    var pass = document.getElementById('inputPassword').value
+    if (user && pass)
+    {
+        if(user==='Ceibal'&&pass==='2021')
+        {
+            window.location="index.html";
+        }
+        else
+        {
+            alert('Usuario o contraseñas incorrectos');
+        }
+        
+    }
+    else
+    {
+        alert('Se deben completar todos los campos');
+    }
 }
 
 function cerrar_sesion(){
@@ -28,8 +43,7 @@ function cerrar_sesion(){
     showLogin()
 }
 
-// Muestro el loggin si no se ha mostrado antes
-showLogin()
+
 
 
 
@@ -38,10 +52,4 @@ showLogin()
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    
-    //localStorage.setItem("email", 'esto es un prueba1');
-    console.log(localStorage.getItem("email1"));
-    
-   
-
 });
