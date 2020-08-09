@@ -16,7 +16,8 @@ var hideSpinner = function(){
 }
 
 var getJSONData = function(url){
-    var result = {};
+  console.log('step3')  
+  var result = {};
     showSpinner();
     return fetch(url)
     .then(response => {
