@@ -77,7 +77,12 @@
   </div>
   -->
 
-  <form class="form-signin">
+  <!--HUBO QUE CAMBIAR EL FORM POR UN DIV
+  ORIGINAL =>  <form class="form-signin"> ... </form>   // DE ESTA FORMA DABA CONFLICTO CUANDO SE VALIDABA EL CAMPO EMAIL
+  CORREGIDO=>  <div class="form-signin"> ... </div>
+  -->
+
+  <div class="form-signin">
     <img class="mb-4" src="img/login.png" alt="" width="300" >
     <h1 class="h3 mb-3 font-weight-normal">Ingrese</h1>
     <!-- <label for="inputEmail" class="sr-only">Email address</label> -->
@@ -95,7 +100,7 @@
     
   
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
-  </form>
+  </div>
 
 
   <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
