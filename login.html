@@ -6,6 +6,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="252563436571-ffervsr5jh5e9hj0fk2vqi7g6cr414re.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
@@ -96,12 +101,11 @@
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:entrar()">Entrar</button>
-    
-    
-  
+    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:googleSignIn()">GOOGLE</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
   </div>
 
+  <!--<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>-->
 
   <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
 
