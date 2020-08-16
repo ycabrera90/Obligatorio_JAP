@@ -15,6 +15,7 @@ function showLogin()
     }
 }
 
+
 function entrar(email)
 {
     localStorage.setItem('login','NO');
@@ -38,9 +39,18 @@ function entrar(email)
     }
 }
 
+function googleSignOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+    console.log('User signed out.');
+    });
+
+}
+
 function cerrar_sesion(){
     localStorage.setItem('login','SI');
     showLogin()
+    googleSignOut()
 }
 
 function googleSignIn(googleUser) {
@@ -56,14 +66,12 @@ function googleSignIn(googleUser) {
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
+
+    // Entrar a la página despues del login
+    entrar();
 }
 
-function googleSignOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-    console.log('User signed out.');
-    });
-}
+
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
