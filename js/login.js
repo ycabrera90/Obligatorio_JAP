@@ -49,8 +49,9 @@ function googleSignOut() {
 
 function cerrar_sesion(){
     localStorage.setItem('login','SI');
-    showLogin()
     googleSignOut()
+    showLogin()
+    
 }
 
 function googleSignIn(googleUser) {
