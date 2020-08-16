@@ -49,7 +49,7 @@ function googleSignOut() {
 
 function cerrar_sesion(){
     localStorage.setItem('login','SI');
-    googleSignOut()
+    //googleSignOut()
     showLogin()
     
 }
