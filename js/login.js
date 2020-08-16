@@ -2,7 +2,7 @@ function showLogin()
 {
     /*
     login = SI:     => Se muestra login.html
-    login = NO:     => No s hace nada
+    login = NO:     => No se hace nada
     login = null    => Se muestra login.html
     */ 
     var login = localStorage.getItem('login');
