@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
 
+  <!--oAuth -->
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="252563436571-ffervsr5jh5e9hj0fk2vqi7g6cr414re.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -100,8 +101,10 @@
         <input type="checkbox" value="remember-me"> Recordar credenciales
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:entrar()">Entrar</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:localSignIn()">Entrar</button>
     <br><br>
+
+    <!--boton de inicio de google-->
     <div class="g-signin2" data-onsuccess="googleSignIn" data-theme="dark"></div> 
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
   </div>

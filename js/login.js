@@ -15,23 +15,26 @@ function showLogin()
     }
 }
 
-
-function entrar(email)
-{
+function gotToIndex(){
+    //con esta funcion entramos al index.html
     localStorage.setItem('login','NO');
+    window.location="index.html";
+}
+
+function localSignIn(email){
     var user = document.getElementById('inputEmail').value;
     var pass = document.getElementById('inputPassword').value
     if (user && pass)
     {
         if(user==='Ceibal'&&pass==='2020')
         {
-            window.location="index.html";
+            gotToIndex()
         }
         else
         {
             alert('Usuario o contraseñas incorrectos');
         }
-        
+       
     }
     else
     {
@@ -44,14 +47,12 @@ function googleSignOut() {
     auth2.signOut().then(function () {
     console.log('User signed out.');
     });
-
 }
 
 function cerrar_sesion(){
     localStorage.setItem('login','SI');
     //googleSignOut()
-    showLogin()
-    
+    showLogin();
 }
 
 function googleSignIn(googleUser) {
@@ -69,7 +70,7 @@ function googleSignIn(googleUser) {
     console.log("ID Token: " + id_token);
 
     // Entrar a la página despues del login
-    entrar();
+    gotToIndex();
 }
 
 
