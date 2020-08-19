@@ -19,7 +19,9 @@
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+
   <link href="css/styles.css" rel="stylesheet">
+
   <!-- ESTO ERA LO QUE APARECIA POR DEFAULT
   <style>
     html, body{
@@ -102,10 +104,20 @@
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:localSignIn()">Entrar</button>
-    <br><br>
-
+    <br>
     <!--boton de inicio de google-->
+    <div style="align-items:flex-end; display: flex;">
+      <div style="width:60%; height:50%">
+        <p class="mytextused"> Ingrese con Google </p>
+      </div>
+      <div style="width:40%; height:50%">
+        <div class="g-signin2" data-onsuccess="googleSignIn" data-theme="dark"></div> 
+      </div>
+    </div>
+
+
     <div class="g-signin2" data-onsuccess="googleSignIn" data-theme="dark"></div> 
+     
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
   </div>
 
