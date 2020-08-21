@@ -28,6 +28,7 @@ function localSignIn(email){
     {
         if(user==='Ceibal'&&pass==='2020')
         {
+            localStorage.setItem('user_loged',user);
             gotToIndex()
         }
         else
@@ -65,6 +66,10 @@ function googleSignIn(googleUser) {
     console.log("Image URL: " + profile.getImageUrl());
     console.log("Email: " + profile.getEmail());
 
+    //var user_name = get.getElementById('user_name');
+    //document.getElementById("user_name").innerHTML = profile.getName();
+    localStorage.setItem('user_loged',profile.getName());
+
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
@@ -80,4 +85,5 @@ function googleSignIn(googleUser) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+    document.getElementById("user_name").innerHTML = localStorage.getItem('user_loged');;
 });
