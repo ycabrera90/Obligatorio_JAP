@@ -19,6 +19,8 @@
   <meta name="google-signin-client_id" content="252563436571-ffervsr5jh5e9hj0fk2vqi7g6cr414re.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+  <!-- Font Awesome Icon Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -30,8 +32,10 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <ul class="nav"><li><a href="">Usuario</a><ul><li><a href="">Bienvenido <span id='user_name'></span></a><a href="javascript:cerrar_sesion()">Cerrar Sesión</a></li></ul></li></ul>
     </div>
   </nav>
+  <!-- ASI ERA COMO ESTABA ANTERIORMENTE
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
@@ -40,7 +44,66 @@
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
   </div>
-  <footer class="text-muted">
+  -->
+   
+    <main role="main">
+      <div class="container mt-5">
+        <div class="text-center p-4">
+          <h2>Descripción del producto</h2>
+          <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+          <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+            seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
+        </div>
+        <h3 id="productName"></h3>
+        <hr class="my-3">
+        <dl>
+          <dt>Descripción</dt>
+          <dd>
+            <p id="productDescription"></p>
+          </dd>
+  
+          <dt>Precio</dt>
+          <dd>
+            <p id="productCost"></p>
+          </dd>
+  
+          <dt>Moneda</dt>
+          <dd>
+            <p id="productCurrency"></p>
+          </dd>
+
+          <dt>Disponibles</dt>
+          <dd>
+            <p id="productSoldCount"></p>
+          </dd>
+
+          <dt>Categoría</dt>
+          <dd>
+            <p id="productCategory"></p>
+          </dd>
+  
+          <dt>Imágenes ilustrativas</dt>
+          <dd>
+            <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+            </div>
+          </dd>
+        </dl>
+        
+        <div name='comments'><h1>Comentarios</h1><div id='comments-list-container'></div></div>
+
+        <div name='insertComment'>
+          <h5>Insterte su propio comentario</h5>
+          <textarea id="myComment" cols="80%" rows="5" style="width: 60%;"></textarea><br>
+          <div style="text-align: right;"><input type="submit" value="Enviar" style="margin-right: 40%;" onclick="javascript:sendComment()"></div>
+        </div>
+        
+        
+        <a type="button" class="btn btn-light btn-lg btn-block" href="products.html" style="margin-top: 40px;">Ver productos</a>
+        
+      </div>
+    </main>
+
+   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
         <a href="#">Volver arriba</a>
