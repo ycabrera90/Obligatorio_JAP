@@ -84,20 +84,37 @@
   
           <dt>Imágenes ilustrativas</dt>
           <dd>
-            <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-            </div>
+            <div class="row text-center text-lg-left pt-2" id="productImagesGallery"></div>
           </dd>
         </dl>
-        
-        <div name='comments'><h1>Comentarios</h1><div id='comments-list-container'></div></div>
+        <hr>
 
+        <!--MUESTRA PRODUCTOS RELACIONADOS-->
+        <h1>Productos relacionados</h1>
+        <div class="row text-center text-lg-left pt-2" id="relatedProducts"></div>
+        <hr>
+        
+        <!--MUESTRA LA LISTA DE LOS COMENTARIOS-->
+        <div name='comments'><h1>Comentarios</h1><div id='comments-list-container'></div></div>
+        <hr>
+
+        <!--MUESTRA EL DIALOGO PARA INSERTAR COMENTARIOS-->
         <div name='insertComment'>
-          <h5>Insterte su propio comentario</h5>
+          <h5>Insterte su propio comentario del producto</h5>
+          <p>Calificación:
+            <select id='myScore'>
+              <option value="1">1 estrella </option>
+              <option value="2">2 estrellas</option>
+              <option value="3">3 estrellas</option>
+              <option value="4">4 estrellas</option>
+              <option value="5">5 estrellas</option>
+            </select>
+          </p>
           <textarea id="myComment" cols="80%" rows="5" style="width: 60%;"></textarea><br>
           <div style="text-align: right;"><input type="submit" value="Enviar" style="margin-right: 40%;" onclick="javascript:sendComment()"></div>
         </div>
         
-        
+        <!--MUESTRA EL BOTON DE VOLVER A PRODUCTOS-->
         <a type="button" class="btn btn-light btn-lg btn-block" href="products.html" style="margin-top: 40px;">Ver productos</a>
         
       </div>
