@@ -34,7 +34,6 @@ function formatedDateTime(dateTimeraw){
     let hourList = dateTimeraw.split(' ')[1]
     return(dateFormated+` `+hourList)
 }
-
 function formatedName(nameRaw){
     //let nameRaw = 'maria_sanchez'
     let nameLetters = [];
