@@ -28,7 +28,7 @@ function localSignIn(email){
     {
         if(user==='Ceibal'&&pass==='2020')
         {
-            localStorage.setItem('user_loged',user);
+            localStorage.setItem('user_loged',user.split(' ')[0]);
             gotToIndex()
         }
         else
@@ -68,7 +68,7 @@ function googleSignIn(googleUser) {
 
     //var user_name = get.getElementById('user_name');
     //document.getElementById("user_name").innerHTML = profile.getName();
-    localStorage.setItem('user_loged',profile.getName());
+    localStorage.setItem('user_loged',profile.getName().split(' ')[0]);
 
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
