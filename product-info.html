@@ -31,9 +31,8 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <ul class="nav"><li><a href="">Usuario</a><ul><li><a href="">Bienvenido <span id='user_name'></span></a><a href="javascript:cerrar_sesion()">Cerrar Sesión</a></li></ul></li></ul>
-    </div>
+      <!--<a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>-->
+      <ul class="nav"><li><a href="">Bienvenido <span id='user_name'></span></a><ul><li><a href="cart.html">Mi Carrito</a><a href="my-profile.html">Mi Perfil</a><a href="javascript:cerrar_sesion()">Cerrar Sesión</a></li></ul></li></ul></div>
   </nav>
   <!-- ASI ERA COMO ESTABA ANTERIORMENTE
   <div class="container p-5">
@@ -54,39 +53,38 @@
           <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
             seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
         </div>
+
         <h3 id="productName"></h3>
         <hr class="my-3">
-        <dl>
-          <dt>Descripción</dt>
-          <dd>
-            <p id="productDescription"></p>
-          </dd>
-  
-          <dt>Precio</dt>
-          <dd>
-            <p id="productCost"></p>
-          </dd>
-  
-          <dt>Moneda</dt>
-          <dd>
-            <p id="productCurrency"></p>
-          </dd>
-
-          <dt>Disponibles</dt>
-          <dd>
-            <p id="productSoldCount"></p>
-          </dd>
-
-          <dt>Categoría</dt>
-          <dd>
-            <p id="productCategory"></p>
-          </dd>
-  
-          <dt>Imágenes ilustrativas</dt>
-          <dd>
-            <div class="row text-center text-lg-left pt-2" id="productImagesGallery"></div>
-          </dd>
-        </dl>
+        <div class="modal-body row">
+          <div class="col-md-7"><!--carrusel son fotos del producto-->
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators" id="carousel-indicators"></ol>
+              <div class="carousel-inner" id="productImagesGallery"></div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-5"><!--Descripcion del producto-->
+            <dl>
+              <dt>Descripción</dt>
+              <dd><p id="productDescription"></p></dd>
+              <dt>Precio</dt>
+              <dd><span id="productCost"></span> <span id="productCurrency"></span></dd>
+              <dt>Disponibles</dt>
+              <dd><p id="productSoldCount"></p></dd>
+              <dt>Categoría</dt>
+              <dd><p id="productCategory"></p></dd>
+            </dl>
+          </div>
+          
+        </div>
         <hr>
 
         <!--MUESTRA PRODUCTOS RELACIONADOS-->
@@ -113,6 +111,10 @@
           <textarea id="myComment" cols="80%" rows="5" style="width: 60%;"></textarea><br>
           <div style="text-align: right;"><input type="submit" value="Enviar" style="margin-right: 40%;" onclick="javascript:sendComment()"></div>
         </div>
+
+        
+
+        
         
         <!--MUESTRA EL BOTON DE VOLVER A PRODUCTOS-->
         <a type="button" class="btn btn-light btn-lg btn-block" href="products.html" style="margin-top: 40px;">Ver productos</a>

@@ -2,23 +2,41 @@ var products = {};
 
 function showImagesGallery(array){
 
-    let htmlContentToAppend = "";
+
+    let htmlImageToAppend = "";
+    let htmlDataSlideToAppend = "";
+    console.log(array)
 
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
+        console.log(imageSrc)
+        if(i === 0){
 
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+            htmlDataSlideToAppend +=`
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            `
+
+            htmlImageToAppend +=`
+            <div class="carousel-item active">
+                <img src="` + imageSrc + `" class="d-block w-100" alt="..." >
             </div>
-        </div>
-        `
+            `
+        }
+        else{
+            htmlDataSlideToAppend +=`
+            <li data-target="#carouselExampleIndicators" data-slide-to="`+ i +`"></li>
+            `
 
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+            htmlImageToAppend +=`
+            <div class="carousel-item">
+                <img src="` + imageSrc + `" class="d-block w-100" alt="..." >
+            </div>
+            `
+        }
     }
+    document.getElementById("productImagesGallery").innerHTML = htmlImageToAppend;
+    document.getElementById("carousel-indicators").innerHTML = htmlDataSlideToAppend;
 }
-
 function showStars(amountStars){
     let htmlContentToAppend = "";
     for(let i = 1; i <= 5; i++){
@@ -27,7 +45,6 @@ function showStars(amountStars){
     }
     return htmlContentToAppend
 }
-
 function formatedDateTime(dateTimeraw){
     let dateList = dateTimeraw.split(' ')[0].split('-')
     dateFormated = dateList[2]+'/'+dateList[1]+'/'+dateList[0]
@@ -62,14 +79,9 @@ function sendComment(){
     document.getElementById('myComment').value = '';        //limpio el área de texto
 }
 function showRelatedProductos(retaledProductos){
-    console.log(retaledProductos)
-    //let productsList = [];
     getJSONData(PRODUCTS_URL).then(function(resultObj){
-        console.log(retaledProductos)
         if (resultObj.status === "ok"){productsList = resultObj.data;}
         
-        console.log(productsList)
-
         for(let i = 0; i < retaledProductos.length; i++)
         {
             n = retaledProductos[i]         //ubicacion de los productos relacionados en la lista de productos
@@ -136,7 +148,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             comments = resultObj.data;
-            console.log(comments[0].score)
             // muestro los comentarios
             for(let i = 0; i < comments.length; i++){
                 let htmlContentToAppend = ''
