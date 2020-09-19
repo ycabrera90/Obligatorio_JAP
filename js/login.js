@@ -26,7 +26,7 @@ function localSignIn(email){
     var pass = document.getElementById('inputPassword').value
     if (user && pass)
     {
-        if(user==='Ceibal Cabrera'&&pass==='2020')
+        if(user==='Ceibal'&&pass==='2020')
         {
             localStorage.setItem('user_loged',user.split(' ')[0]);
             gotToIndex()
