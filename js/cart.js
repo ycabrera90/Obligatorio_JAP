@@ -52,8 +52,6 @@ function updateMyBill(atrib=false,art=false){
             // elimino el producto seleccionado
             myBoughtaArticles.splice(art,1)
             showMyBoughtaArticles(myBoughtaArticles)
-
-            
         }
         else{
             // actualizo la cantidad en el articulo cambiado
@@ -82,7 +80,7 @@ function buy(){
     casa = document.getElementById('apto').value;
 
     // detecto si la compra tiene retiro en el local
-    if (readTipoEnvio()==0){
+    if (!(readTipoEnvio()==0)){
         console.log('primero')
         // chequeo si existen campos vacios en los datos del envio
         if(!(direccion&&esquina&&casa)){

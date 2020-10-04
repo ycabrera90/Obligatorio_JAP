@@ -103,12 +103,8 @@
             <h3>Tipo de envío</h2>
               <p>Seleccione el tipo de envío que desee.</p>
               <form>
-                <div class="radio disabled">
-                  <label><input type="radio" name="tipo_envio" value="0" onclick="javascript:updateMyBill()" checked> 
-                    Retiron en local (Sin cargos)</label>
-                </div>
                 <div class="radio">
-                  <label><input type="radio" name="tipo_envio" value="0.15" onclick="javascript:updateMyBill()">
+                  <label><input type="radio" name="tipo_envio" value="0.15" onclick="javascript:updateMyBill()" checked>
                     Premium 2 a 5 días (15%)</label>
                 </div>
                 <div class="radio">
@@ -118,6 +114,10 @@
                 <div class="radio disabled">
                   <label><input type="radio" name="tipo_envio" value="0.05" onclick="javascript:updateMyBill()"> 
                     Standard 12 a 15 días (5%)</label>
+                </div>
+                <div class="radio disabled">
+                  <label><input type="radio" name="tipo_envio" value="0" onclick="javascript:updateMyBill()" > 
+                    Retiron en local (Sin cargos)</label>
                 </div>
               </form>
           </div>
