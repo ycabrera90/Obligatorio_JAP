@@ -14,8 +14,13 @@
 
   <!--oAuth -->
   <meta name="google-signin-scope" content="profile email">
-  <meta name="google-signin-client_id" content="252563436571-ffervsr5jh5e9hj0fk2vqi7g6cr414re.apps.googleusercontent.com">
+  <meta name="google-signin-client_id"
+    content="252563436571-ffervsr5jh5e9hj0fk2vqi7g6cr414re.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -32,10 +37,21 @@
         font-size: 3.5rem;
       }
     }
+
+    .table td,
+    .table th {
+      vertical-align: unset;
+    }
+
+    .form-control {
+      width: 50px
+    }
+
+    .form-check-label {
+      font-size: 100%;
+    }
   </style>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
+
 
   <script src="js/login.js"></script>
 </head>
@@ -47,20 +63,151 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <!--<a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>-->
-      <ul class="nav"><li><a href="">Bienvenido/a <span id='user_name'></span></a><ul><li><a href="cart.html">Mi Carrito</a><a href="my-profile.html">Mi Perfil</a><a href="javascript:cerrar_sesion()">Cerrar Sesión</a></li></ul></li></ul></div>
+      <ul class="nav">
+        <li><a href="">Bienvenido/a <span id='user_name'></span></a>
+          <ul>
+            <li><a href="cart.html">Mi Carrito</a><a href="my-profile.html">Mi Perfil</a><a
+                href="javascript:cerrar_sesion()">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
     </div>
   </nav>
-  <!--
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+
+  <div class="text-center p-4">
+    <h2>Carrito de compras</h2>
   </div>
-  -->
+
+  <div style="margin-left: 50px; margin-right: 50px;" >
+
+    <div class="row">
+      <div class="col1" style="margin-left: auto; margin-right: auto;">
+        <div class="overflow-auto" style="height: 393px; width:900px;">
+          <table class="table" >
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Costo</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Sub Total</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="myBoughtProducts"></tbody>
+          </table>
+        </div>
+        <div class="row"> 
+          <div class="col1" style="margin: auto;">
+            <h3>Tipo de envío</h2>
+              <p>Seleccione el tipo de envío que desee.</p>
+              <form>
+                <div class="radio disabled">
+                  <label><input type="radio" name="tipo_envio" value="0" onclick="javascript:updateMyBill()" checked> 
+                    Retiron en local (Sin cargos)</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="tipo_envio" value="0.15" onclick="javascript:updateMyBill()">
+                    Premium 2 a 5 días (15%)</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="tipo_envio" value="0.07" onclick="javascript:updateMyBill()"> 
+                    Express 5 a 8 días (7%)</label>
+                </div>
+                <div class="radio disabled">
+                  <label><input type="radio" name="tipo_envio" value="0.05" onclick="javascript:updateMyBill()"> 
+                    Standard 12 a 15 días (5%)</label>
+                </div>
+              </form>
+          </div>
+          <div class="col2" style="margin: auto;">
+            <h3>Datos de envío</h3>
+            <div class="form-group">
+              <input type="text" class="form-control" id="street" placeholder="Nombre/número de la calle" style="width: 300px;">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="corner" placeholder="Nombre/número de la esquina " style="width: 300px;">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="apto" placeholder="Numero Casa/Apto" style="width: 170px;">
+            </div>
+          </div>
+        </div>
+
+        
+
+        
+      </div>
+
+      <div class="col2" style="margin-right: auto; margin-left: auto;">
+        <div>
+          <h2>Costos</h2>
+          <ul class="list-group">
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <P><span style="font-size: 150%;">Subtotal</span><br><span>Costo unitario de los productos por su
+                  cantidad</span></P>
+              <span class="badge badge-primary badge-pill"
+                style="font-size: 120%;color:unset;background-color: unset;">UYU
+                <span id="subTotal"></span></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <P><span style="font-size: 150%;">Costo del envío</span><br><span>Según el tipo de envío</span></P>
+              <span class="badge badge-primary badge-pill"
+                style="font-size: 120%;color:unset;background-color: unset;">UYU
+                <span id="costoDeEnvio"></span></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <P><span style="font-size: 150%;">Total</span><br><span>Los productos en USD se cotizan en UYU <br> (40 UYU = 1
+                  USD) </span></P>
+              <span class="badge badge-primary badge-pill"
+                style="font-size: 120%;background-color: #00beff;border-radius: unset">UYU <span
+                  id="total"></span></span>
+            </li>
+          </ul>
+          
+        </div>
+        <br>
+        <div>
+          <ul class="list-group">
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <form style="font-size: 150%;">
+                <p>Forma de pago <br>
+                  <img src="/img/visa.png" style="width: 70px;">
+                  <img src="/img/masterCard.png" style="width: 70px;">
+                </p>
+                              
+              </form>
+              <form>
+                <div class="radio">
+                  <label><input type="radio" name="formaDePago" value="0.15" checked>
+                    Tarjeta</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="formaDePago" value="0.07"> 
+                    Transferencia</label>
+                </div>
+              </form>
+              <span class="badge badge-primary badge-pill" style="font-size: 120%;color:unset;background-color: unset;">
+                <button type="button" class="btn btn-primary btn-lg" onclick="javascript:buy()">Comprar</button>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div id="alert">
+          
+        </div>
+        
+      </div>
+
+      <br><br><br><br>
+
+
+    </div>
+
+  </div>
 
 
   <div id="spinner-wrapper">
@@ -71,12 +218,17 @@
       <div></div>
     </div>
   </div>
+
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <div class="g-signin2" style="display: none;"></div>
+
+
+
 </body>
 
 </html>
