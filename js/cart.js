@@ -14,7 +14,7 @@ function showMyBoughtaArticles(articles){
             <input type="number" min="1" max="1000"  class="form-control text-dark bg-white" id="count`+i+`" name="sup" value="`+myBoughtaArticles[i].count+`" onclick="javascript:updateMyBill('count',`+i+`)" style="width: 70px;" onkeyup="javascript:updateMyBill('count',`+i+`)"></input>
           </td>
           <td><strong > `+ myBoughtaArticles[i].currency +` <span id="subTotal`+i+`">`+ myBoughtaArticles[i].unitCost*myBoughtaArticles[i].count +`</span> </strong></td>
-          <th scope="row"><img src="/img/delete.jpg" alt="..." class="img-circle" style="max-width: 30px;" onclick="javascript:updateMyBill('del',`+i+`)"></th>
+          <th scope="row"><img src="img/delete.jpg" alt="..." class="img-circle" style="max-width: 30px;" onclick="javascript:updateMyBill('del',`+i+`)"></th>
         </tr>
     ` 
     }
