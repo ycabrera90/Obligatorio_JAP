@@ -134,17 +134,12 @@
             </div>
           </div>
         </div>
-
-        
-
-        
       </div>
 
       <div class="col2" style="margin-right: auto; margin-left: auto;">
         <div>
           <h2>Costos</h2>
           <ul class="list-group">
-
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <P><span style="font-size: 150%;">Subtotal</span><br><span>Costo unitario de los productos por su
                   cantidad</span></P>
@@ -171,22 +166,20 @@
         <br>
         <div>
           <ul class="list-group">
-
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <form style="font-size: 150%;">
                 <p>Forma de pago <br>
                   <img src="img/visa.png" style="width: 70px;">
                   <img src="img/masterCard.png" style="width: 70px;">
                 </p>
-                              
               </form>
               <form>
                 <div class="radio">
-                  <label><input type="radio" name="formaDePago" value="0.15" checked>
+                  <label><input type="radio" name="formaDePago" id="pago_con_tarjeta" onclick="javascript:ask_for_card_datas()" >
                     Tarjeta</label>
                 </div>
                 <div class="radio">
-                  <label><input type="radio" name="formaDePago" value="0.07"> 
+                  <label><input type="radio" name="formaDePago" id="pago_con_transferencia" onclick="javascript:ask_for_acount_datas()"> 
                     Transferencia</label>
                 </div>
               </form>
@@ -197,27 +190,22 @@
           </ul>
         </div>
         <div id="alert">
-          
         </div>
-        
       </div>
-
       <br><br><br><br>
-
-
-    </div>
-
-  </div>
-
-
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
     </div>
   </div>
+
+
+  <!--ELEMENTOS AUXILIARES-->
+  <!--spinner-->
+  <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+  <!--modal de datos de la tarjeta-->
+  <div class="modal fade" id="cards_data" tabindex="-1" aria-hidden="true"></div>
+  <!--modal de datos de la cuenta-->
+  <div class="modal fade" id="acount_data" tabindex="-1" aria-hidden="true"></div>
+
+
 
 
   <script src="js/jquery-3.4.1.min.js"></script>
@@ -228,6 +216,7 @@
   <div class="g-signin2" style="display: none;"></div>
 
 
+  
 
 </body>
 
