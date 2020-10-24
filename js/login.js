@@ -6,8 +6,6 @@ function showLogin()
     login = null    => Se muestra login.html
     */ 
     var login = sessionStorage.getItem('login');
-    console.log('sdsfd')
-    console.log(login)
     if (login !== 'NO')
     {
         window.location="login.html";
@@ -75,8 +73,6 @@ function googleSignIn(googleUser) {
     // Entrar a la página despues del login
     gotToIndex();
 }
-
-
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
