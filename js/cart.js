@@ -140,6 +140,25 @@ function ask_for_acount_datas(){
     document.getElementById('pago_con_transferencia').checked = false;
 }
 
+function show_purchase_status(){
+    htmlContentToAppend = `<div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header" style="margin-left: auto; margin-right: auto;">
+            <h5 class="modal-title" id="exampleModalLabel">ESTADO DE COMPRA</h5>
+        </div>
+        <div class="modal-body" id="message"></div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="javascript:cerrar_sesion()">Salir</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='index.html'">Seguir comprando</button>
+        </div>
+        </div>
+    </div>
+    `
+    // escribo y muestro el modal
+    document.getElementById('purchase_status').innerHTML = htmlContentToAppend;
+    $('#purchase_status').modal('show');
+}
+
 function updateMyBill(atrib=false,art=false){
 
     // detecto si se llama a la funcion por algun cambio en la cantidad
@@ -223,7 +242,7 @@ function buy(){
     // si estan insertados todos los datos completamos la compra
     if(purchaseStatus){
         // muestro modal de finalizacion de compra
-        $('#purchase_status').modal('show');
+        show_purchase_status();
 
         // escribo el msg del jon
         getJSONData(CART_BUY_URL).then(function(resultObj){if (resultObj.status === "ok"){

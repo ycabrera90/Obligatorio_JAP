@@ -5,7 +5,7 @@ function showLogin()
     login = NO:     => No se hace nada
     login = null    => Se muestra login.html
     */ 
-    var login = localStorage.getItem('login');
+    var login = sessionStorage.getItem('login');
 
     if (login)
     {
@@ -17,7 +17,7 @@ function showLogin()
 
 function gotToIndex(){
     //con esta funcion entramos al index.html
-    localStorage.setItem('login','NO');
+    sessionStorage.setItem('login','NO');
     window.location="index.html";
 }
 
@@ -28,7 +28,7 @@ function localSignIn(email){
     {
         if(user==='Ceibal'&&pass==='2020')
         {
-            localStorage.setItem('user_loged',user.split(' ')[0]);
+            sessionStorage.setItem('user_loged',user.split(' ')[0]);
             gotToIndex()
         }
         else
@@ -50,7 +50,7 @@ function googleSignOut() {
 }
 
 function cerrar_sesion(){
-    localStorage.setItem('login','SI');
+    sessionStorage.setItem('login','SI');
     googleSignOut()
     showLogin();
 }
@@ -67,7 +67,7 @@ function googleSignIn(googleUser) {
 
     //var user_name = get.getElementById('user_name');
     //document.getElementById("user_name").innerHTML = profile.getName();
-    localStorage.setItem('user_loged',profile.getName().split(' ')[0]);
+    sessionStorage.setItem('user_loged',profile.getName().split(' ')[0]);
 
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
@@ -84,5 +84,5 @@ function googleSignIn(googleUser) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    document.getElementById("user_name").innerHTML = localStorage.getItem('user_loged');
+    document.getElementById("user_name").innerHTML = sessionStorage.getItem('user_loged');
 });

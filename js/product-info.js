@@ -73,7 +73,7 @@ function sendComment(){
     let currentDateTime = new Date().getDate()+'/'+(new Date().getMonth()+1)+'/'+new Date().getFullYear()+' '+new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds()
     htmlContentToAppend = showStars(document.getElementById('myScore').value)
     htmlContentToAppend +=`
-        <p><span>`+currentDateTime+`</span>: <span>`+ localStorage.getItem('user_loged') +`</span>
+        <p><span>`+currentDateTime+`</span>: <span>`+ sessionStorage.getItem('user_loged') +`</span>
         <br>`+document.getElementById('myComment').value+`</p>`
     document.getElementById('comments-list-container').innerHTML += htmlContentToAppend
     document.getElementById('myComment').value = '';        //limpio el área de texto
