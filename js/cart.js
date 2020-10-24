@@ -57,19 +57,19 @@ function ask_for_card_datas(){
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="no_card">Numero de la tarjeta</label>
-                        <input type="text" id="no_card" class="form-control" placeholder="1234-5678-0123-45678"  maxlength="19" style="width: 220px;" required>
+                        <input type="number" id="no_card" class="form-control" placeholder="1234-5678-0123-45678"  maxlength="19" style="width: 220px;" required>
                         <div class="invalid-feedback" id="no_card_inv_feedback">Inserte su número de tarjeta</div>
                     </div>
                     <div class="col-md-5" style="margin-left: 14px;">
                         <label for="code_card">Codigo de verificacion</label>
-                        <input type="text" class="form-control" id="code_card" placeholder="559" maxlength="3" style="width: 80px;" required>
+                        <input type="number" class="form-control" id="code_card" placeholder="559" maxlength="3" style="width: 80px;" required>
                         <div class="invalid-feedback" id="code_card_inv_feedback">Insete el codigo de su tarjeta</div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="date_card">Fecha de vencimiento</label>
-                        <input type="text" class="form-control" id="date_card" placeholder="MM/AA" maxlength="5" style="width: 110px;" required>
+                        <input type="number" class="form-control" id="date_card" placeholder="MM/AA" maxlength="5" style="width: 110px;" required>
                         <div class="invalid-feedback" id="date_card_inv_feedback">Inserte la fecha de vencimeinto</div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@ function ask_for_acount_datas(){
             <br>
             <div class="col-md-8 mb-3">
                 <label for="validationServer01">Numero de cuenta</label>
-                <input type="text" class="form-control" id="acount_datas_bank_number" placeholder="" maxlength="19" style="width: 220px;" required>
+                <input type="number" class="form-control" id="acount_datas_bank_number" placeholder="" maxlength="19" style="width: 220px;" required>
                 <div class="invalid-feedback" id="acount_datas_bank_number_inv_feedback">Inserte su numero de cuenta</div>
             </div>
             </form>
@@ -172,9 +172,9 @@ function updateMyBill(atrib=false,art=false){
 
 function buy(){
     // leo variables de los capos de dato de envio
-    direccion = document.getElementById('street').value;
-    esquina = document.getElementById('corner').value;
-    casa = document.getElementById('apto').value;
+    direccion = document.getElementById('street');
+    esquina = document.getElementById('corner');
+    casa = document.getElementById('apto');
     formaPago = document.getElementsByName("formaDePago")
     purchaseStatus = true
     htmlContentToAppend = "";
@@ -182,18 +182,38 @@ function buy(){
     // detecto si la compra tiene retiro en el local
     if (!(readTipoEnvio()==0)){
         // chequeo si existen campos vacios en los datos del envio
-        if(!(direccion&&esquina&&casa)){
+        if(!(direccion.value&&esquina.value&&casa.value)){
             // alerto sobre la falta de datos
             htmlContentToAppend += `<p style="text-align: center; margin-top: 7px; font-size: 17px;
             color: red;">Debe completar todos los datos de envío</p>`;
             purchaseStatus = false
         }
+
+        if(!direccion.value){
+            direccion.className = "form-control is-invalid";
+        }
+        else{
+            direccion.className = "form-control is-valid";
+        }
+
+        if(!esquina.value){
+            esquina.className = "form-control is-invalid";
+        }
+        else{
+            esquina.className = "form-control is-valid";
+        }
+
+        if(!casa.value){
+            casa.className = "form-control is-invalid";
+        }
+        else{
+            casa.className = "form-control is-valid";
+        }
+
     }
 
-    // detecto si hay seleccionado algún metodo de envio
+    // detecto si hay seleccionado algún metodo de pago
     if(!(formaPago[0].checked||formaPago[1].checked)){
-        console.log(formaPago[0].checked)
-        console.log(formaPago[1].checked)
         // alerto sobre la falta de datos
         htmlContentToAppend += `<p style="text-align: center; margin-top: 7px; font-size: 17px;
         color: red;">Debe seleccionar un método de pago</p>`;
@@ -202,9 +222,12 @@ function buy(){
 
     // si estan insertados todos los datos completamos la compra
     if(purchaseStatus){
+        // muestro modal de finalizacion de compra
+        $('#purchase_status').modal('show');
+
         // escribo el msg del jon
         getJSONData(CART_BUY_URL).then(function(resultObj){if (resultObj.status === "ok"){
-            document.getElementById('alert').innerHTML = `<p style="text-align: center; margin-top: 7px; font-size: 17px;
+            document.getElementById('message').innerHTML = `<p style="text-align: center; margin-top: 7px; font-size: 17px;
             color: blue;">`+resultObj.data.msg+`</p>`
         }});
     }
@@ -299,6 +322,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     //ask_for_card_dates();
     //$('#acount_data').modal('show');
+    
     
 
     getJSONData(CART_INFO_URL).then(function(resultObj){
