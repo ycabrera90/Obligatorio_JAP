@@ -83,5 +83,5 @@ function googleSignIn(googleUser) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    //document.getElementById("user_name").innerHTML = sessionStorage.getItem('user_loged');
+    document.getElementById("user_name").innerHTML = sessionStorage.getItem('user_loged');
 });
