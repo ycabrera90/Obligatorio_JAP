@@ -1,10 +1,14 @@
-$(document).ready(main);
-
-var contador = 1;
-
-function main (){
-    $('.icon-menu').click(function(){
-    $('nav').toggle(); 
-    console.log('sdffg')
-    });
-};
+function show_navBar()
+{
+    display =  document.getElementById('navBar_cel').style.display;
+    
+    if(!display || (display =='none'))
+    {
+        document.getElementById('navBar_cel').style.display = 'block';
+        console.log('true')
+    }
+    else{
+        document.getElementById('navBar_cel').style.display = 'none';
+        console.log('true')
+    }
+}

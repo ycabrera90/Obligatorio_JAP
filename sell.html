@@ -39,9 +39,9 @@
   <body>
     <header>
       <div class="menu_bar">
-        <a class="bt-menu" href="#"><span class="icon-menu"></span>Menu</a>
+        <a class="bt-menu" href="#"><span class="icon-menu" onclick=javascript:show_navBar()></span>Menu</a>
       </div>
-      <nav class="site-header sticky-top py-1">
+      <nav class="site-header sticky-top py-1" id="navBar_cel">
         <ul class>
           <li><a href="index.html">       <span class="icon-home">    </span>Inicio                                   </a></li>
           <li><a href="categories.html">  <span class="icon-dropbox"> </span>Categorías                               </a></li>
@@ -56,13 +56,11 @@
               </li>
             </ul>
           </li>
-          
         </ul>
       </nav>
-
+  
       <!--dependencias de la barra de navegacion-->
       <link rel="stylesheet" href="css/navbar.css">
-      <script src="http://code.jquery.com/jquery-latest.js"></script>
       <script src="js/navBar.js"></script>
       <link rel="stylesheet" href="css/icomoon_fonts.css">
     </header>
