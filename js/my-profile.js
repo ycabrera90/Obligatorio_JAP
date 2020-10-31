@@ -46,7 +46,7 @@ function saveUserDatas(){
         userDataName.className = "form-control is-invalid";
     }
     else{
-        userDataName.className = "form-control is-valid";
+        userDataName.className = "form-control";
     }
 
     // detecto campo vacio en los apellidos del usuario
@@ -55,7 +55,7 @@ function saveUserDatas(){
         userDataLastName.className = "form-control is-invalid";
     }
     else{
-        userDataLastName.className = "form-control is-valid";
+        userDataLastName.className = "form-control";
     }
 
     // detecto campo vacio en la edad del usuario
@@ -64,7 +64,7 @@ function saveUserDatas(){
         userDataAge.className = "form-control is-invalid";
     }
     else{
-        userDataAge.className = "form-control is-valid";
+        userDataAge.className = "form-control";
     }
 
     // detecto campo vacio en el correo del usuario
@@ -73,7 +73,7 @@ function saveUserDatas(){
         userDataEmail.className = "form-control is-invalid";
     }
     else{
-        userDataEmail.className = "form-control is-valid";
+        userDataEmail.className = "form-control";
     }
 
     if (data_validation){
