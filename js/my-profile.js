@@ -16,12 +16,8 @@ function showUserInformation(user_Information){
         document.getElementById('boxUserInformation_age').innerHTML = user_Information.age;
         document.getElementById('boxUserInformation_email').innerHTML = user_Information.emal;
         
-
-        
-
-        
         // muestro bloque de informacion de usuario
-        //document.getElementById('boxUserInformation').style.display = 'block';
+        document.getElementById('boxUserInformation').style.display = 'flex';
     }
 }
 
@@ -88,6 +84,7 @@ function saveUserDatas(){
         localStorage.setItem(user_loged+'_inf',JSON.stringify(userData));
 
         // actualizo datos introducidos por el usuario
+        user_loged = localStorage.getItem('user_loged');
         user_Information = JSON.parse(localStorage.getItem(user_loged+'_inf'));
                 
         // actualizo el box de datos de usuario
