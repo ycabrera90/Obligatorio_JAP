@@ -77,7 +77,7 @@
   <div class="container">
       <div class="row justify-content-md-center mydata" id="boxUserInformation">
         <div class="col-sm-auto">
-          <img src="img/user.jpg" alt="..." class="img-thumbnail"><span style="margin-left: 50px;"></span>
+          <img src="img/male_user.png" alt="..." class="img-thumbnail" style="width: 205px;" id="boxUserInformation_sex"><span style="margin-left: 50px;"></span>
         </div>
         <div class="col-sm-auto mydata">
           <p><strong>Nombre: </strong><span id="boxUserInformation_name"></span></p>
@@ -125,6 +125,23 @@
             <div class="mycol2">
               <input type="number" id="userDataAge" class="form-control" placeholder="" maxlength="2" style="width: 83px;" required>
               <div class="invalid-feedback" id="no_card_inv_feedback">Inserte su edad</div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center mt-3">
+          <div class="col-sm-auto description">
+            <div class="mycol1">
+             <label for="no_card">Sexo</label>
+            </div>
+          </div>
+          <div class="col-sm-auto">
+            <div class="mycol2">
+              <select id="userDataSex" class="form-control" style="width: 130px; background-image: none;">
+                <option selected>---</option>
+                <option>Masculino</option>
+                <option>Femenino</option>
+              </select>
+              <div class="invalid-feedback" id="no_card_inv_feedback">Seleccione su sexo</div>
             </div>
           </div>
         </div>

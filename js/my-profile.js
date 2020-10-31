@@ -16,6 +16,16 @@ function showUserInformation(user_Information){
         document.getElementById('boxUserInformation_age').innerHTML = user_Information.age;
         document.getElementById('boxUserInformation_email').innerHTML = user_Information.emal;
         
+        // alterno entre el logo masculino y el femenino segun el tipo de usuario
+        if (user_Information.sex === 'Femenino'){
+            document.getElementById('boxUserInformation_sex').src = "img/female_user.png";
+        }
+        else{
+            document.getElementById('boxUserInformation_sex').src = "img/male_user.png";
+        }
+        
+
+
         // muestro bloque de informacion de usuario
         document.getElementById('boxUserInformation').style.display = 'flex';
     }
@@ -36,7 +46,11 @@ function saveUserDatas(){
     userDataName = document.getElementById('userDataName');
     userDataLastName = document.getElementById('userDataLastName');
     userDataAge = document.getElementById('userDataAge');
+    userDataSex = document.getElementById('userDataSex');
     userDataEmail = document.getElementById('userDataEmail');
+
+    console.log('userDataSex');
+    console.log(userDataSex.value);
 
     // BLOQUE DE VALIDACION DE DATOS
     data_validation = true;
@@ -67,6 +81,16 @@ function saveUserDatas(){
         userDataAge.className = "form-control";
     }
 
+    // detecto campo vacio en el sexo del usuario
+    if(userDataSex.value === '---'){
+        data_validation = false;
+        userDataSex.className = "form-control is-invalid";
+    }
+    else{
+        userDataSex.className = "form-control";
+    }
+
+
     // detecto campo vacio en el correo del usuario
     if(!userDataEmail.value){
         data_validation = false;
@@ -78,7 +102,7 @@ function saveUserDatas(){
 
     if (data_validation){
         // objeto para la informacion del usuario 
-        userData = {'name':userDataName.value,'lastName':userDataLastName.value,'age':userDataAge.value,'emal':userDataEmail.value};
+        userData = {'name':userDataName.value,'lastName':userDataLastName.value,'age':userDataAge.value,'sex':userDataSex.value,'emal':userDataEmail.value};
         
         // guardo objeto en el local storage
         localStorage.setItem(user_loged+'_inf',JSON.stringify(userData));
