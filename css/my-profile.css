@@ -1,0 +1,46 @@
+/* BLOQUE DE INFORMACION DE USUARIO */
+@media screen and (max-width:767px) {
+    .mydata img{
+      margin-left: 48%;
+    }
+    .mydata .mydata{
+      margin-top: 20px;
+      margin-left: 25%;
+    }
+  }
+  @media screen and (max-width:575px) {
+    .mydata img{
+      margin-left: 15%;
+    }
+    .mydata .mydata{
+      margin-top: 20px;
+      margin-left: 15%;
+    } 
+  }
+
+/* BLOQUE DEL FORMULARIO DE DATOS PERSONALES */
+  .personal_datas{
+    display: none;
+  }
+
+  .personal_datas .description{
+    padding: 5px;
+  }
+  .personal_datas .mycol1{
+    width: 225px;
+    margin-right: 23px;
+    text-align: right;
+  }
+  .personal_datas .mycol2{
+    width: 225px;
+    margin-left: 45px;
+  }
+  @media screen and (max-width:767px) {
+    .personal_datas .mycol1{
+      text-align: left;
+      margin-left: 20%;
+    }
+    .personal_datas .mycol2{
+      margin-left: 17%;
+    }
+  }

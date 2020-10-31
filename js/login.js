@@ -26,6 +26,7 @@ function localSignIn(email){
         if(user==='Ceibal'&&pass==='2020')
         {
             sessionStorage.setItem('user_loged',user.split(' ')[0]);
+            localStorage.setItem('user_loged',user.split(' ')[0]);
             gotToIndex()
         }
         else
@@ -40,10 +41,17 @@ function localSignIn(email){
 }
 
 function googleSignOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-    console.log('User signed out.');
+    try {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+        console.log('User signed out.');
     });
+    } catch (error) {
+        console.log('No se puede cerrar sesion en Google');
+        console.log(error);
+    }
+
+    
 }
 
 function cerrar_sesion(){
@@ -65,6 +73,8 @@ function googleSignIn(googleUser) {
     //var user_name = get.getElementById('user_name');
     //document.getElementById("user_name").innerHTML = profile.getName();
     sessionStorage.setItem('user_loged',profile.getName().split(' ')[0]);
+    localStorage.setItem('user_loged',profile.getName().split(' ')[0]);
+
 
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
@@ -79,5 +89,7 @@ function googleSignIn(googleUser) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    document.getElementById("user_name").innerHTML = sessionStorage.getItem('user_loged');
+    try {
+        document.getElementById("user_name").innerHTML = sessionStorage.getItem('user_loged');
+    } catch (error) {}
 });

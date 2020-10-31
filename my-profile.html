@@ -30,7 +30,13 @@
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">                 
+  <link rel="stylesheet" href="css/my-profile.css">               <!-- estilos de la informacion de usuario -->
+
+  <!-- login -->
+  <script src="js/login.js"></script>  
+  <script>showLogin()</script>
+
 </head>
 
 <body>
@@ -62,20 +68,85 @@
     <link rel="stylesheet" href="css/icomoon_fonts.css">
   </header>
   
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+
+  <div class="text-center p-4">
+    <h2>Mi perfil</h2>
+    <p class="lead">Verás aquí todos los datos personales ingresados a tu cuenta</p>
   </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
+
+  <div class="container">
+      <div class="row justify-content-md-center mydata" id="boxUserInformation">
+        <div class="col-sm-auto">
+          <img src="img/user.jpg" alt="..." class="img-thumbnail"><span style="margin-left: 50px;"></span>
+        </div>
+        <div class="col-sm-auto mydata">
+          <p><strong>Nombre: </strong><span id="boxUserInformation_name"></span></p>
+          <p><strong>Apellidos: </strong><span id="boxUserInformation_lastName"></span></p>
+          <p><strong>Edad: </strong><span id="boxUserInformation_age"></span> años</p>
+          <p><strong>email: </strong><span id="boxUserInformation_email"></span></p>
+          <button type="button" class="btn btn-outline-secondary" onclick="javascript:askForUserDatas()">Editar información</button>
+        </div>
+      </div>
+      <form class="personal_datas" action="" id="personal_datas">
+        <h4 class="text-center mt-4">Introduzca sus datos personales</h4>
+        <div class="row justify-content-md-center mt-3">
+          <div class="col-sm-auto description">
+            <div class="mycol1">
+              <label for="no_card">Nombre</label>
+            </div>
+          </div>
+          <div class="col-sm-auto">
+            <div class="mycol2">
+              <input type="text" id="userDataName" class="form-control" placeholder="Jorge" maxlength="10" style="width: 111px;" required>
+              <div class="invalid-feedback" id="no_card_inv_feedback">Inserte su nombre</div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center mt-3">
+          <div class="col-sm-auto description">
+            <div class="mycol1">
+              <label for="no_card">Apellidos</label>
+            </div>
+          </div>
+          <div class="col-sm-auto">
+            <div class="mycol2">
+              <input type="text" id="userDataLastName" class="form-control" placeholder="Cabrera García" maxlength="19" style="width: 220px;" required>
+              <div class="invalid-feedback" id="no_card_inv_feedback">Inserte sus apellidos</div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center mt-3">
+          <div class="col-sm-auto description">
+            <div class="mycol1">
+             <label for="no_card">Edad</label>
+            </div>
+          </div>
+          <div class="col-sm-auto">
+            <div class="mycol2">
+              <input type="number" id="userDataAge" class="form-control" placeholder="23" maxlength="2" style="width: 83px;" required>
+              <div class="invalid-feedback" id="no_card_inv_feedback">Inserte su edad</div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center mt-3">
+          <div class="col-sm-auto description">
+            <div class="mycol1">
+              <label for="no_card">email</label>
+            </div>
+          </div>
+          <div class="col-sm-auto">
+            <div class="mycol2">
+              <input type="Email" id="userDataEmail" class="form-control" placeholder="jorgecg@gmail.com" maxlength="25" style="width: 220px;" required>
+              <div class="invalid-feedback" id="no_card_inv_feedback">Inserte su correo electrónico</div>
+              <button type="button" class="btn btn-outline-secondary" onclick="javascript:saveUserDatas()" style="margin-top: 20px;">Salvar Datos</button>
+            </div>
+          </div>
+        </div>
+      </form>
+  </div>
+  
+  
+
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -95,6 +166,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/login.js"></script>
 </body>
 
 </html>
