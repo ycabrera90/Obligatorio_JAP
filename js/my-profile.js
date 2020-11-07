@@ -16,12 +16,15 @@ function showUserInformation(user_Information){
         document.getElementById('boxUserInformation_age').innerHTML = user_Information.age;
         document.getElementById('boxUserInformation_email').innerHTML = user_Information.emal;
         
+
         // alterno entre el logo masculino y el femenino segun el tipo de usuario
         if (user_Information.sex === 'Femenino'){
             document.getElementById('boxUserInformation_sex').src = "img/female_user.png";
         }
         else{
             document.getElementById('boxUserInformation_sex').src = "img/male_user.png";
+            document.getElementById('boxUserInformation_sex').src = "https://lh3.googleusercontent.com/a-/AOh14GhDjML_SFya1dJX-rkXwTQ3EU7kf0OoA_gOV8k-1Q=s96-c";
+            console.log(user_Information)
         }
         
 
@@ -102,7 +105,7 @@ function saveUserDatas(){
 
     if (data_validation){
         // objeto para la informacion del usuario 
-        userData = {'name':userDataName.value,'lastName':userDataLastName.value,'age':userDataAge.value,'sex':userDataSex.value,'emal':userDataEmail.value};
+        userData = {'lastUpdate':'localUser', 'name':userDataName.value,'lastName':userDataLastName.value,'age':userDataAge.value,'sex':userDataSex.value,'emal':userDataEmail.value};
         
         // guardo objeto en el local storage
         localStorage.setItem(user_loged+'_inf',JSON.stringify(userData));

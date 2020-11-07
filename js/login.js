@@ -69,7 +69,7 @@ function googleSignIn(googleUser) {
     console.log('Family Name: ' + profile.getFamilyName());
     console.log("Image URL: " + profile.getImageUrl());
     console.log("Email: " + profile.getEmail());
-    alert(profile.getImageUrl());
+    alert('Full Name: ' + profile.getName()+' Given Name: ' + profile.getGivenName()+' Family Name: ' + profile.getFamilyName()+ " Email: " + profile.getEmail());
 
     //var user_name = get.getElementById('user_name');
     //document.getElementById("user_name").innerHTML = profile.getName();
