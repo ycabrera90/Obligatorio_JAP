@@ -16,19 +16,22 @@ function showUserInformation(user_Information){
         document.getElementById('boxUserInformation_age').innerHTML = user_Information.age;
         document.getElementById('boxUserInformation_email').innerHTML = user_Information.emal;
         
-
-        // alterno entre el logo masculino y el femenino segun el tipo de usuario
-        if (user_Information.sex === 'Femenino'){
-            document.getElementById('boxUserInformation_sex').src = "img/female_user.png";
+        // detecto si se ha insertado una foto
+        if(user_Information.imgUrl){
+            document.getElementById('boxUserInformation_sex').src = user_Information.imgUrl;
         }
         else{
-            document.getElementById('boxUserInformation_sex').src = "img/male_user.png";
-            document.getElementById('boxUserInformation_sex').src = "https://lh3.googleusercontent.com/a-/AOh14GhDjML_SFya1dJX-rkXwTQ3EU7kf0OoA_gOV8k-1Q=s96-c";
-            console.log(user_Information)
+            // seteo una foto default
+            // alterno entre el logo masculino y el femenino segun el tipo de usuario
+            if (user_Information.sex === 'Femenino'){
+                document.getElementById('boxUserInformation_sex').src = "img/female_user.png";
+            }
+            else{
+                document.getElementById('boxUserInformation_sex').src = "img/male_user.png";
+                console.log(user_Information)
+            }
         }
         
-
-
         // muestro bloque de informacion de usuario
         document.getElementById('boxUserInformation').style.display = 'flex';
     }
