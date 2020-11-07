@@ -22,23 +22,17 @@ function showProductsList(){
         {
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
+            <div class="col-md-4">
+                <a href="product-info.html" class="list-group-item list-group-item-action">
+                    <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1"> <br> `+ products.name +`</h4>
+                        <small class="text-muted">` + products.soldCount + ` artículos</small>
                     </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1"> <br> `+ products.name +`</h4>
-                            <br> <br> <br>
-                            <small class="text-muted">` + products.soldCount + ` artículos</small>
-                        </div>
-                        <p class="mb-1">Precio: `+ products.cost +` `+ products.currency+ ` </p>
-
-                        <p class="mb-1">` + products.description + `</p>
-                    </div>
-                </div>
-            </a>
+                    <p class="mb-1">Precio: `+ products.cost +` `+ products.currency+ ` </p>
+                    <p class="mb-1">` + products.description + `</p>
+                </a>
+            </div>
             `
         }
 
