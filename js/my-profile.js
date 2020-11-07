@@ -44,7 +44,14 @@ function askForUserDatas(){
         document.getElementById('personal_datas').style.display = 'None';
     }
     else{
+        // muestro el formulario
         document.getElementById('personal_datas').style.display = 'block';
+
+        // cargo en el formulario la informacion disponible
+        document.getElementById('userDataName').value = document.getElementById('boxUserInformation_name').innerHTML;
+        document.getElementById('userDataLastName').value = document.getElementById('boxUserInformation_lastName').innerHTML;
+        document.getElementById('userDataAge').value = document.getElementById('boxUserInformation_age').innerHTML;
+        document.getElementById('userDataEmail').value = document.getElementById('boxUserInformation_email').innerHTML;
     }
 }
 
