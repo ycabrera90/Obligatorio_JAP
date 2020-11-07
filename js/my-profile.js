@@ -110,6 +110,10 @@ function saveUserDatas(){
     }
 
     if (data_validation){
+        
+        // leo la url de la imagen cargada y la actualizo la foto de perfil        
+        readURL();
+
         user_loged = localStorage.getItem('user_loged');
         if(localStorage.getItem(user_loged+'_inf')){
             userData = JSON.parse(localStorage.getItem(user_loged+'_inf'));
@@ -147,9 +151,23 @@ function saveUserDatas(){
         // cierro el formulario
         document.getElementById('personal_datas').style.display = 'None';
     }
-
-   
 }
+
+var readURL = function() {
+    input = document.getElementById('selectImgFile');
+    
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('.img-thumbnail').attr('src', e.target.result);
+            userData = JSON.parse(localStorage.getItem(user_loged+'_inf'));
+            userData.imgUrl = e.target.result;
+            localStorage.setItem(user_loged+'_inf',JSON.stringify(userData));
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
