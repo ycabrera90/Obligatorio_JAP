@@ -114,17 +114,30 @@ function saveUserDatas(){
     }
 
     if (data_validation){
-        // objeto para la informacion del usuario 
-        userData = {
-            'lastUpdate':'localUser', 
-            'name':userDataName.value, 
-            'lastName':userDataLastName.value,
-            'age':userDataAge.value,
-            'sex':userDataSex.value,
-            'emal':userDataEmail.value,
-            'imgUrl':false
-        };
+        user_loged = localStorage.getItem('user_loged');
+        if(localStorage.getItem(user_loged+'_inf')){
+            user_Information = JSON.parse(localStorage.getItem(user_loged+'_inf'));
 
+            // modifico solo los campos que estan en el formulario y conservo los anteriores
+            user_Information.lastUpdate = 'localUser';
+            user_Information.name = userDataName.value;
+            user_Information.lastName = userDataLastName.value;
+            user_Information.age = userDataAge.value;
+            user_Information.sex = userDataSex.value;
+            user_Information.emal = userDataEmail.value;
+        }
+        else{
+            // objeto para la informacion del usuario 
+            userData = {
+                'lastUpdate':'localUser', 
+                'name':userDataName.value, 
+                'lastName':userDataLastName.value,
+                'age':userDataAge.value,
+                'sex':userDataSex.value,
+                'emal':userDataEmail.value,
+                'imgUrl':false
+            };
+        }
         // guardo objeto en el local storage
         localStorage.setItem(user_loged+'_inf',JSON.stringify(userData));
 
@@ -138,6 +151,8 @@ function saveUserDatas(){
         // cierro el formulario
         document.getElementById('personal_datas').style.display = 'None';
     }
+
+   
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
