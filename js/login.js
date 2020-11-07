@@ -73,7 +73,7 @@ function googleSignIn(googleUser) {
     user_loged = profile.getName().split(' ')[0];
 
     // si no hay datos previos del usuario cargo los de google
-    if(!localStorage.getItem(user_loged+'_inf')){
+    //if(!localStorage.getItem(user_loged+'_inf')){
         userData = {
             'lastUpdate':'googleUser', 
             'name':profile.getGivenName(), 
@@ -85,7 +85,7 @@ function googleSignIn(googleUser) {
         };
         // guardo objeto en el local storage
         localStorage.setItem(user_loged+'_inf',JSON.stringify(userData));
-    }
+    //}
     
     // guardo el usuario logeado
     sessionStorage.setItem('user_loged',user_loged);
