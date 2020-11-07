@@ -105,8 +105,16 @@ function saveUserDatas(){
 
     if (data_validation){
         // objeto para la informacion del usuario 
-        userData = {'lastUpdate':'localUser', 'name':userDataName.value,'lastName':userDataLastName.value,'age':userDataAge.value,'sex':userDataSex.value,'emal':userDataEmail.value};
-        
+        userData = {
+            'lastUpdate':'localUser', 
+            'name':userDataName.value, 
+            'lastName':userDataLastName.value,
+            'age':userDataAge.value,
+            'sex':userDataSex.value,
+            'emal':userDataEmail.value,
+            'imgUrl':false
+        };
+
         // guardo objeto en el local storage
         localStorage.setItem(user_loged+'_inf',JSON.stringify(userData));
 

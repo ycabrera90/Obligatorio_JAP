@@ -69,12 +69,25 @@ function googleSignIn(googleUser) {
     console.log('Family Name: ' + profile.getFamilyName());
     console.log("Image URL: " + profile.getImageUrl());
     console.log("Email: " + profile.getEmail());
-    alert('Full Name: ' + profile.getName()+' Given Name: ' + profile.getGivenName()+' Family Name: ' + profile.getFamilyName()+ " Email: " + profile.getEmail());
+    
+    userData = {
+        'lastUpdate':'googleUser', 
+        'name':profile.getGivenName(), 
+        'lastName':profile.getFamilyName(),
+        'age':'',
+        'sex':'',
+        'emal':profile.getEmail(),
+        'imgUrl':profile.getImageUrl()
+    };
 
-    //var user_name = get.getElementById('user_name');
-    //document.getElementById("user_name").innerHTML = profile.getName();
-    sessionStorage.setItem('user_loged',profile.getName().split(' ')[0]);
-    localStorage.setItem('user_loged',profile.getName().split(' ')[0]);
+    user_loged = profile.getName().split(' ')[0];
+
+    // guardo objeto en el local storage
+    localStorage.setItem(user_loged+'_inf',JSON.stringify(userData));
+
+    // guardo el usuario logeado
+    sessionStorage.setItem('user_loged',user_loged);
+    localStorage.setItem('user_loged',user_loged);
 
 
     // The ID token you need to pass to your backend:
