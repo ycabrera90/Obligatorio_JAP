@@ -28,7 +28,6 @@ function showUserInformation(user_Information){
             }
             else{
                 document.getElementById('boxUserInformation_sex').src = "img/male_user.png";
-                console.log(user_Information)
             }
         }
         
@@ -61,9 +60,6 @@ function saveUserDatas(){
     userDataAge = document.getElementById('userDataAge');
     userDataSex = document.getElementById('userDataSex');
     userDataEmail = document.getElementById('userDataEmail');
-
-    console.log('userDataSex');
-    console.log(userDataSex.value);
 
     // BLOQUE DE VALIDACION DE DATOS
     data_validation = true;
@@ -116,15 +112,15 @@ function saveUserDatas(){
     if (data_validation){
         user_loged = localStorage.getItem('user_loged');
         if(localStorage.getItem(user_loged+'_inf')){
-            user_Information = JSON.parse(localStorage.getItem(user_loged+'_inf'));
+            userData = JSON.parse(localStorage.getItem(user_loged+'_inf'));
 
             // modifico solo los campos que estan en el formulario y conservo los anteriores
-            user_Information.lastUpdate = 'localUser';
-            user_Information.name = userDataName.value;
-            user_Information.lastName = userDataLastName.value;
-            user_Information.age = userDataAge.value;
-            user_Information.sex = userDataSex.value;
-            user_Information.emal = userDataEmail.value;
+            userData.lastUpdate = 'localUser';
+            userData.name = userDataName.value;
+            userData.lastName = userDataLastName.value;
+            userData.age = userDataAge.value;
+            userData.sex = userDataSex.value;
+            userData.emal = userDataEmail.value;
         }
         else{
             // objeto para la informacion del usuario 
